@@ -77,3 +77,32 @@ variable "purpose" {
   type        = string
 }
 
+variable "storage_account_name" {
+  description = "The name of the Azure storage account for Terraform state"
+  type        = string
+  default = "6425dveus2aristb01"
+}
+
+variable "container_name" {
+  description = "The name of the Azure storage container for Terraform state"
+  type        = string
+  default = "terraform-state"
+}
+
+variable "resource_group_name" {
+  description = "The name of the resource group containing the storage account"
+  type        = string
+  default = "test-dev-eus2-testing-rg"
+}
+
+variable "environment" {
+  description = "Deployment environment (e.g., dev, staging, prod)"
+  type        = string
+  default = "dev"
+}
+
+ variable "project_name" {
+  description = "Name of the project for organizing the state file"
+   type        = string
+ }
+
