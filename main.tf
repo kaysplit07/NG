@@ -4,12 +4,10 @@ provider "azurerm" {
 
 terraform {
   backend "azurerm" {
-    resource_group_name  = "test-dev-eus2-testing-rg"
-    storage_account_name = "6425dveus2aristb01"
-    container_name       = "terraform-state"
-    key                  = "LoadBalancer-terraform.tfstate"
-    access_key = "" 
-    # access_key           = var.storage_account_access_key
+    storage_account_name = var.storage_account_name
+    container_name       = var.container_name
+    key                  = "${var.environment}/${var.project_name}.tfstate"
+    resource_group_name  = var.resource_group_name
   }
 }
 
