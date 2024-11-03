@@ -223,14 +223,14 @@ jobs:
       - name: 'Checkout - Load Balancer'
         uses: actions/checkout@v3
         
-      #- name: 'Terraform Initialize - Load Balancer'
-      - name: terraform init -backend-config="dev.tfvars"
+      - name: 'Terraform Initialize - Load Balancer'
         uses: hashicorp/terraform-github-actions@master
         with:
           tf_actions_version:     latest
           tf_actions_subcommand:  'init'
           tf_actions_working_dir: ${{env.ROOT_PATH}}
           tf_actions_comment:     true
+          backend_config_file: "Azure/Azure-LB/dev.tfvars"
         env:
           TF_VAR_requesttype:         '${{inputs.requesttype}}'
           TF_VAR_location:            '${{inputs.location}}'
@@ -297,8 +297,6 @@ jobs:
           TF_VAR_subnetname:          '${{inputs.subnetname}}'
           TF_VAR_sku_name:            '${{inputs.sku_name}}'
           TF_VAR_private_ip_address:  '${{inputs.private_ip_address}}'
-
-
 
 Initializing the backend...
 ╷
